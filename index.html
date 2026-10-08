@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#25141b" />
+    <title>绣见羌来</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="progress-rail" aria-hidden="true"><span id="progress-fill"></span></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="回到首页"><span class="brand-seal">羌</span><span>绣见羌来</span></a>
+      <button class="sound-button" id="journey-button" type="button" aria-label="查看探索进度"><span class="journey-dot"></span>探索</button>
+    </header>
+
+    <main id="top">
+      <section class="hero section" aria-labelledby="hero-title">
+        <div class="hero-image" role="img" aria-label="羌绣传统刺绣工艺介绍"></div>
+        <div class="hero-shade"></div>
+        <div class="hero-motif motif-one"></div><div class="hero-motif motif-two"></div>
+        <div class="hero-content">
+          <p class="eyebrow">QIANG EMBROIDERY · IMMERSIVE ARCHIVE</p>
+          <h1 id="hero-title">绣见<br /><em>羌来</em></h1>
+          <p class="hero-subtitle">从一针一线，到当代新生</p>
+          <button class="primary-button enter-button" id="enter-button" type="button"><span>进入绣境</span><i>↓</i></button>
+          <p class="hero-hint">向下探索 · 约 3 分钟</p>
+        </div>
+      </section>
+
+      <section class="section puzzle-section reveal" id="puzzle" aria-labelledby="puzzle-title">
+        <div class="section-number">GAME <span>纹样拼图</span></div>
+        <div class="puzzle-heading"><p class="eyebrow">QIANG EMBROIDERY PUZZLE</p><h2 id="puzzle-title">拼回一幅<br /><em>羌绣纹样</em></h2><p>从九块绣片中，复原这幅盛开的纹样。</p></div>
+        <div class="puzzle-stage">
+          <div class="puzzle-board" id="puzzle-board" aria-label="羌绣纹样拼图" aria-live="polite"></div>
+          <div class="puzzle-side"><div class="puzzle-status"><span>当前步数</span><strong id="puzzle-moves">00</strong></div><div class="puzzle-status"><span>完成进度</span><strong id="puzzle-progress">0 / 9</strong></div><button class="primary-button" id="puzzle-start" type="button">开始拼图 <i>↻</i></button><button class="text-button puzzle-reset" id="puzzle-reset" type="button">重新打乱</button></div>
+        </div>
+        <p class="puzzle-message" id="puzzle-message">点击两块绣片交换位置。</p>
+      </section>
+
+      <section class="section introduction reveal" id="introduction" aria-labelledby="intro-title">
+        <div class="section-number">01 <span>初识</span></div>
+        <div class="section-heading">
+          <p class="eyebrow">A LIVING THREAD</p>
+          <h2 id="intro-title">一针一线<br />皆是 <em>山河记忆</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p>宁强羌族刺绣流传于陕西省汉中市宁强县羌族聚居区。它把日常生活、自然想象与代际记忆，一针一线绣入衣襟、头帕与器物。</p>
+          <p>宁强羌绣以不打样、不描线、随针而就见长。2016 年，它入选陕西省第五批省级非物质文化遗产名录。</p>
+        </div>
+        <button class="video-trigger" id="short-video-trigger" type="button">
+          <span class="play-mark">▶</span><span><small>15 SECONDS</small>看见羌绣</span><i>↗</i>
+        </button>
+      </section>
+
+      <section class="section pattern-section reveal" id="patterns" aria-labelledby="pattern-title">
+        <div class="pattern-photo" role="img" aria-label="羌绣花纹"></div>
+        <div class="pattern-content">
+          <div class="section-number section-number-light">02 <span>纹样</span></div>
+          <p class="eyebrow">READ THE PATTERN</p>
+          <h2 id="pattern-title">纹样，是<br /><em>无声的叙事</em></h2>
+          <p class="section-description">点击落针，亲手看一朵羌绣花从线稿变成色彩。</p>
+          <div class="stitch-playground" id="stitch-playground">
+            <canvas id="stitch-canvas" aria-label="点按落针，分层绣出一朵花"></canvas>
+            <div class="stitch-overlay" id="stitch-overlay"><span>羌绣体验台</span><strong>从一根线，到一朵花</strong><small>点击下方落针按钮</small></div>
+            <div class="stitch-meter"><span id="stitch-count">0</span><i>/</i> 4 层</div>
+          </div>
+          <div class="stitch-control"><span id="stitch-stage">第一层 · 绣上花心</span><button class="stitch-action" id="stitch-action" type="button"><i>✦</i> 落下一针</button></div>
+          <div class="meaning-grid" id="meaning-grid" aria-label="羌绣纹样寓意"></div>
+          <div class="meaning-detail" id="meaning-detail" aria-live="polite">请选择一枚纹样</div>
+        </div>
+      </section>
+
+      <section class="section attire-section reveal" id="attire" aria-labelledby="attire-title">
+        <div class="section-number">03 <span>衣饰</span></div>
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">WEAR THE STORY</p>
+          <h2 id="attire-title">穿在身上的<br /><em>文化密码</em></h2>
+        </div>
+        <p class="section-description">拖动取景框，靠近服饰上的刺绣细节。</p>
+        <div class="attire-explorer" id="attire-explorer">
+          <img src="服饰.jpg" alt="身着羌绣服饰的人像" loading="lazy" />
+          <div class="lens" id="lens" aria-hidden="true"></div>
+          <button class="hotspot hotspot-one" type="button" aria-label="羌绣衣襟介绍" data-label="衣襟介绍" data-detail="衣袖与衣襟常以连续纹样形成边饰，让一件衣服成为可阅读的文化文本。"><span></span></button>
+          <button class="hotspot hotspot-two" type="button" aria-label="羌绣头饰" data-label="羌绣头饰" data-detail="头饰上的花卉纹样，以明丽色彩和层叠针法承接节庆与日常的审美。"><span></span></button>
+        </div>
+        <p class="hotspot-detail" id="hotspot-detail" aria-live="polite">点按光点，探索服饰细节。</p>
+      </section>
+
+      <section class="section craft-section reveal" id="craft" aria-labelledby="craft-title">
+        <div class="craft-backdrop"></div>
+        <div class="craft-content">
+          <div class="section-number section-number-light">04 <span>针线</span></div>
+          <p class="eyebrow">HAND · THREAD · TIME</p>
+          <h2 id="craft-title">让时间<br /><em>慢慢开花</em></h2>
+          <p>穿针、起线、收线。手的温度和反复的练习，让一根线拥有了耐心。</p>
+          <button class="outline-button" id="craft-video-trigger" type="button"><span class="play-mark">▶</span> 沉浸观看工艺片段</button>
+        </div>
+      </section>
+
+      <section class="section lineage-section reveal" id="lineage" aria-labelledby="lineage-title">
+        <div class="section-number">传承 <span>一枚纹样的生命</span></div>
+        <div class="lineage-heading"><p class="eyebrow">FROM MEMORY TO MARKET</p><h2 id="lineage-title">一枚纹样<br />如何成为 <em>一份收入</em></h2><p>从村寨里的记忆出发，走进可被使用、可被看见的当代生活。</p></div>
+        <div class="lineage-path" id="lineage-path" aria-label="羌绣纹样传承链路">
+          <button class="lineage-step active" type="button" data-title="采集：在村寨里听见故事" data-body="记录纹样的名称、使用场景与老人们口述的记忆，先尊重来源，再开始设计。"><b>01</b><span>采集</span></button>
+          <button class="lineage-step" type="button" data-title="共创：让技艺成为设计语言" data-body="由传承人指导纹样与针法，团队把传统元素转译为更贴近当代使用的图样。"><b>02</b><span>共创</span></button>
+          <button class="lineage-step" type="button" data-title="打样：把想法变成可触摸的作品" data-body="通过样品反复校对颜色、材质与工艺，保留羌绣辨识度，也兼顾日常实用。"><b>03</b><span>打样</span></button>
+          <button class="lineage-step" type="button" data-title="回流：让价值回到村寨" data-body="把产品、体验与传播连接起来，让技艺被更多人看见，也为传承人和绣娘创造持续参与的可能。"><b>04</b><span>回流</span></button>
+        </div>
+        <article class="lineage-detail" id="lineage-detail" aria-live="polite"><span>01 · 采集</span><h3>采集：在村寨里听见故事</h3><p>记录纹样的名称、使用场景与老人们口述的记忆，先尊重来源，再开始设计。</p></article>
+      </section>
+
+      <section class="section action-section reveal" id="action" aria-labelledby="action-title">
+        <div class="action-backdrop"></div>
+        <div class="action-content"><div class="section-number section-number-light">行动 <span>乡村共益</span></div><p class="eyebrow">WHAT WE DO</p><h2 id="action-title">让羌绣走出<br /><em>“只被展示”</em></h2><p>项目不替代传承人发声，而是搭建连接技艺、青年、市场与乡村的协作路径。</p></div>
+        <div class="action-grid">
+          <article><b>01</b><h3>田野调研</h3><p>走进村寨，收集真实需求与技艺故事。</p></article>
+          <article><b>02</b><h3>传承人共创</h3><p>让纹样、针法与文化解释保持准确。</p></article>
+          <article><b>03</b><h3>青年体验</h3><p>以工作坊和互动传播降低接触门槛。</p></article>
+          <article><b>04</b><h3>文创开发</h3><p>把图样转化为更贴近日常的使用场景。</p></article>
+          <article><b>05</b><h3>数字传播</h3><p>以影像、档案和互动页面扩大被看见的机会。</p></article>
+        </div>
+      </section>
+
+      <section class="section review-section reveal" id="review" aria-labelledby="review-title">
+        <div class="section-number">评审 <span>项目闭环</span></div><p class="eyebrow">CHALLENGE CUP · PROJECT LOGIC</p><h2 id="review-title">从问题出发<br />让价值 <em>看得见</em></h2>
+        <div class="review-tabs" role="tablist" aria-label="项目逻辑"><button class="review-tab active" id="review-problem" role="tab" aria-selected="true" aria-controls="review-panel" type="button" data-key="problem">问题</button><button class="review-tab" role="tab" aria-selected="false" aria-controls="review-panel" type="button" data-key="method">方法</button><button class="review-tab" role="tab" aria-selected="false" aria-controls="review-panel" type="button" data-key="evidence">成果</button><button class="review-tab" role="tab" aria-selected="false" aria-controls="review-panel" type="button" data-key="future">未来</button></div>
+        <article class="review-panel" id="review-panel" role="tabpanel" aria-live="polite"></article>
+      </section>
+
+      <section class="section trail-section reveal" id="trail" aria-labelledby="trail-title">
+        <div class="section-number">旅程 <span>延展</span></div>
+        <p class="eyebrow">BEYOND THE SCREEN</p>
+        <h2 id="trail-title">从宁强羌乡<br /><em>走向更多目光</em></h2>
+        <p class="section-description">点亮沿途的三枚印记，打开羌绣与当代相遇的三个切面。</p>
+        <div class="trail-map" id="trail-map" aria-label="羌绣文化探索路线">
+          <div class="trail-line" aria-hidden="true"></div>
+          <button class="trail-stop active" type="button" data-title="技艺仍在日常里" data-body="衣饰、鞋花、头帕与日常器物，都是羌绣被使用、被传承的现场。"><b>01</b><span>日常</span></button>
+          <button class="trail-stop" type="button" data-title="被看见的宁强羌绣" data-body="宁强羌族刺绣于 2016 年入选陕西省第五批省级非物质文化遗产名录，成为宁强羌文化保护与传播的重要载体。"><b>02</b><span>名录</span></button>
+          <button class="trail-stop" type="button" data-title="等待更多年轻的手" data-body="新的材料、设计与数字叙事，让传统技艺在尊重原貌的前提下，进入新的生活场景。"><b>03</b><span>新生</span></button>
+        </div>
+        <article class="trail-story" id="trail-story" aria-live="polite"><span>01 · 日常</span><h3>技艺仍在日常里</h3><p>衣饰、鞋花、头帕与日常器物，都是羌绣被使用、被传承的现场。</p></article>
+        <div class="resource-row">
+          <a href="https://ichshaanxi.cn/fyccxm/detail/675.shtml" target="_blank" rel="noreferrer"><small>官方资料库</small><strong>陕西省非遗保护中心 · 宁强羌绣 ↗</strong></a>
+          <a href="https://www.cctv.com/" target="_blank" rel="noreferrer"><small>官方影像</small><strong>央视非遗专题检索 ↗</strong></a>
+        </div>
+      </section>
+
+      <section class="section creations-section reveal" id="creations" aria-labelledby="creations-title">
+        <div class="section-number">05 <span>新生</span></div>
+        <div class="section-heading compact-heading">
+          <p class="eyebrow">NEW FORMS</p>
+          <h2 id="creations-title">传统，在今天<br /><em>继续被使用</em></h2>
+        </div>
+        <p class="section-description">向左滑动，查看羌绣元素走进当代生活的更多可能。</p>
+        <div class="creation-track" id="creation-track" aria-label="羌绣文创图集"></div>
+        <div class="drag-note">← SWIPE TO DISCOVER →</div>
+        <div class="outcome-block">
+          <p class="eyebrow">FROM PATTERN TO DAILY LIFE</p>
+          <h3>让羌绣，走进更多日常</h3>
+          <p>当纹样进入挂件、饰品、礼物与体验活动，传统技艺便以新的方式参与今天的生活。</p>
+        </div>
+      </section>
+
+      <section class="section maker-section reveal" id="maker" aria-labelledby="maker-title">
+        <div class="maker-top">
+          <div class="section-number section-number-light">06 <span>共创</span></div>
+          <p class="eyebrow">MAKE YOUR MARK</p>
+          <h2 id="maker-title">绣出你的<br /><em>守护印记</em></h2>
+          <p>选择一份祝愿和一组色彩，让羌绣在你的手中再次生长。</p>
+        </div>
+        <div class="maker-panel">
+          <div class="motif-preview" id="motif-preview" aria-label="正在创作的羌绣纹样"></div>
+          <div class="maker-controls">
+            <fieldset><legend>选择祝愿</legend><div class="wish-options" id="wish-options"></div></fieldset>
+            <fieldset><legend>选择色彩</legend><div class="palette-options" id="palette-options"></div></fieldset>
+          </div>
+        </div>
+        <button class="primary-button full-button" id="create-card" type="button">生成我的守护人卡 <i>→</i></button>
+      </section>
+
+      <section class="section sources-section">
+        <p class="eyebrow">SOURCES &amp; NOTES</p>
+        <p>文化背景资料参考 <a href="https://ichshaanxi.cn/fyccxm/detail/675.shtml" target="_blank" rel="noreferrer">陕西省非物质文化遗产保护中心：宁强羌族刺绣</a> 与公开名录信息。页面图片与视频均使用本项目提供素材。</p>
+      </section>
+    </main>
+
+    <dialog class="media-dialog" id="media-dialog" aria-label="羌绣视频播放器">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="关闭视频">×</button>
+      <video id="story-video" controls playsinline preload="none"><p>您的浏览器不支持视频播放。</p></video>
+      <p id="video-caption"></p>
+    </dialog>
+
+    <dialog class="card-dialog" id="card-dialog" aria-labelledby="card-dialog-title">
+      <button class="dialog-close" id="card-close" type="button" aria-label="关闭守护人卡">×</button>
+      <div class="card-dialog-inner">
+        <p class="eyebrow">YOUR QIANG EMBROIDERY MARK</p>
+        <h2 id="card-dialog-title">我的羌绣守护人卡</h2>
+        <label class="name-label" for="guardian-name">留下你的名字</label>
+        <input id="guardian-name" maxlength="12" placeholder="羌绣守护人" autocomplete="name" />
+        <div class="guardian-card" id="guardian-card">
+          <p>绣见羌来</p><div id="card-motif"></div><h3 id="card-name">羌绣守护人</h3><span id="card-wish">愿美好在时光里绽放</span><small>从一针一线，到当代新生</small>
+        </div>
+        <div class="participation-note" id="participation-note" aria-live="polite"></div>
+        <button class="primary-button full-button" id="save-card" type="button">保存守护人卡 <i>↓</i></button>
+        <button class="text-button centered" id="remake-card" type="button">重新创作</button>
+      </div>
+    </dialog>
+
+    <div class="journey-panel" id="journey-panel" hidden><span>探索进度</span><strong id="journey-count">0 / 6</strong></div>
+    <script src="app.js"></script>
+  </body>
+</html>
